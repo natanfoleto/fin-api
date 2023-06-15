@@ -7,7 +7,6 @@ app.use(express.json());
 
 const customers = [];
 
-// Middleware
 function verifyIfExistsAccountCpf(request, response, next) {
   const { cpf } = request.headers;
 
@@ -17,7 +16,6 @@ function verifyIfExistsAccountCpf(request, response, next) {
     return response.status(400).json({ error: 'Customer not found!'})
   }
 
-  // Adicionando novo parâmetro de request no middleware
   request.customer = customer;
 
   return next();
